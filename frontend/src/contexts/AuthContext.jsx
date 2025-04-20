@@ -3,13 +3,13 @@ import httpStatus from "http-status";
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// import server from "../environment";
+import server from "../environment";
 
 
 export const AuthContext = createContext({}); //AuthContext is like global storage
 
 const client = axios.create({
-    baseURL: "http://localhost:8000/api/v1/users"  //instead of making axios.get for multiple times on smae url we create like this client so clinet.get or post
+    baseURL: `${server}/api/v1/users`  //instead of making axios.get for multiple times on smae url we create like this client so clinet.get or post
 })
 
 //AuthProvider wraps your application (or part of it) and provides the authentication data to all child components.
